@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nexo AI ayuda a restaurantes y cafeterías a organizar su marketing y crear contenido con inteligencia artificial.">
+  <meta name="theme-color" content="#090d18">
+  <title>Nexo AI — Automatiza. Crea. Crece.</title>
+  <style>
+    :root {
+      --bg: #090d18;
+      --panel: #11182a;
+      --panel-2: #151e33;
+      --text: #f5f7ff;
+      --muted: #aab4cc;
+      --line: rgba(180, 194, 230, .16);
+      --blue: #27a8ff;
+      --purple: #8060ff;
+      --cyan: #65d5ff;
+      --radius: 22px;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background:
+      radial-gradient(ellipse at 80% 0%, rgba(96, 72, 220, .19), transparent 34rem),
+      radial-gradient(ellipse at 0% 35%, rgba(22, 145, 220, .12), transparent 30rem),
+      var(--bg);
+      font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px);
+      background: rgba(9, 13, 24, .82); border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 1.35rem; font-weight: 800; letter-spacing: -.04em; }
+    .brand-mark {
+      display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px;
+      color: white; font-weight: 900; font-size: 1.25rem;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      box-shadow: 0 8px 28px rgba(92, 92, 255, .28);
+    }
+    .brand span:last-child { color: #fff; }
+    .brand em { color: var(--blue); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: .92rem; }
+    .nav-links a:hover { color: white; }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center; gap: 9px;
+      border: 0; border-radius: 999px; padding: 12px 19px; font: inherit; font-weight: 750;
+      color: white; cursor: pointer; background: linear-gradient(100deg, #277ff5, #7953f5);
+      box-shadow: 0 10px 30px rgba(86, 87, 255, .22); transition: transform .2s, filter .2s;
+    }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    .btn.secondary { background: rgba(255,255,255,.06); border: 1px solid var(--line); box-shadow: none; }
+    .hero { padding: 76px 0 64px; }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 48px; }
+    .eyebrow { color: #8bbcff; font-size: .78rem; letter-spacing: .16em; font-weight: 800; text-transform: uppercase; }
+    h1 { margin: 15px 0 20px; max-width: 680px; font-size: clamp(2.55rem, 6vw, 4.7rem); line-height: 1.02; letter-spacing: -.065em; }
+    .gradient { background: linear-gradient(100deg, #5dcaff, #9a79ff 75%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { max-width: 590px; color: var(--muted); font-size: 1.13rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .micro { margin-top: 16px; color: #8591aa; font-size: .82rem; }
+    .visual {
+      position: relative; min-height: 390px; overflow: hidden; border: 1px solid var(--line);
+      border-radius: 28px; background: linear-gradient(145deg, #17243a, #101525 55%, #17132c);
+      box-shadow: 0 25px 80px rgba(0,0,0,.32);
+    }
+    .visual img { width: 100%; height: 100%; min-height: 390px; object-fit: cover; display: block; opacity: .92; }
+    .visual-fallback { padding: 34px; display: none; }
+    .float-card {
+      position: absolute; right: 18px; bottom: 18px; width: min(245px, 75%);
+      padding: 16px; border: 1px solid rgba(255,255,255,.2); border-radius: 17px;
+      background: rgba(13, 19, 34, .88); backdrop-filter: blur(12px);
+      box-shadow: 0 14px 40px rgba(0,0,0,.3);
+    }
+    .float-card b { display: block; margin-bottom: 5px; }
+    .float-card small { color: var(--muted); }
+    section { padding: 68px 0; }
+    .section-head { max-width: 690px; margin-bottom: 30px; }
+    h2 { margin: 8px 0 12px; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.12; letter-spacing: -.045em; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card {
+      padding: 24px; border: 1px solid var(--line); border-radius: var(--radius);
+      background: linear-gradient(150deg, rgba(22,31,52,.92), rgba(14,20,35,.9));
+    }
+    .icon {
+      display: grid; place-items: center; width: 46px; height: 46px; margin-bottom: 18px;
+      border-radius: 14px; color: #b6c7ff; font-size: 1.35rem;
+      background: linear-gradient(135deg, rgba(39,168,255,.2), rgba(128,96,255,.25));
+    }
+    h3 { margin: 0 0 8px; font-size: 1.12rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; counter-reset: step; }
+    .step { padding: 21px; border-radius: 18px; border: 1px solid var(--line); background: rgba(255,255,255,.035); }
+    .step:before { counter-increment: step; content: "0" counter(step); display: block; margin-bottom: 20px; color: #8c9dff; font-weight: 850; letter-spacing: .1em; }
+    .step p { color: var(--muted); font-size: .9rem; margin: 0; }
+    .value {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center;
+      padding: 32px; border-radius: 26px; border: 1px solid var(--line);
+      background: linear-gradient(120deg, rgba(28,44,74,.9), rgba(40,27,77,.72));
+    }
+    .checklist { display: grid; gap: 12px; padding: 0; list-style: none; color: #dce5fa; }
+    .checklist li:before { content: "✓"; display: inline-grid; place-items: center; width: 23px; height: 23px; margin-right: 10px; border-radius: 50%; color: #07111e; background: #71d9c0; font-weight: 900; }
+    .cta {
+      text-align: center; padding: 46px 24px; border-radius: 28px;
+      border: 1px solid rgba(129,111,255,.28);
+      background: radial-gradient(ellipse at 50% 0%, rgba(111,83,255,.25), transparent 60%), #11182a;
+    }
+    .cta p { color: var(--muted); max-width: 600px; margin: 0 auto 22px; }
+    .contact-note { color: #9ba8c0; font-size: .85rem; margin-top: 14px; }
+    footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: #8490a8; font-size: .86rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    @media (max-width: 800px) {
+      .hero-grid, .value { grid-template-columns: 1fr; }
+      .hero { padding-top: 48px; }
+      .visual, .visual img { min-height: 300px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      .cards, .steps { grid-template-columns: 1fr; }
+      .value { padding: 23px; }
+      .hero-actions .btn { width: 100%; }
+      .visual, .visual img { min-height: 240px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#inicio" aria-label="Nexo AI, inicio"><span class="brand-mark">N</span><span>Nexo <em>AI</em></span></a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a><a href="#como-funciona">Cómo funciona</a><a href="#beneficios">Beneficios</a>
+      </nav>
+      <a class="btn" href="#contacto">Solicitar información <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Automatiza · Crea · Crece</div>
+          <h1>Tu marketing, más sencillo con <span class="gradient">inteligencia artificial.</span></h1>
+          <p class="lead">Nexo AI ayuda a restaurantes y cafeterías a planificar contenido, organizar sus publicaciones y ahorrar tiempo en tareas de marketing.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contacto">Quiero saber más <span aria-hidden="true">→</span></a>
+            <a class="btn secondary" href="#como-funciona">Ver cómo funciona</a>
+          </div>
+          <p class="micro">Soluciones prácticas · Revisión humana · Sin complicaciones técnicas</p>
+        </div>
+        <div class="visual" aria-label="Concepto visual de Nexo AI">
+          <img src="assets/nexo-ai-concepto.png" alt="Presentación visual de la marca Nexo AI y su panel de marketing para restaurantes" onerror="this.style.display='none';">
+          <div class="float-card"><b>Una semana de contenido, organizada.</b><small>Ideas · Textos · Calendario · Revisión</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Qué hacemos</div>
+          <h2>Herramientas útiles para el día a día de tu negocio.</h2>
+          <p>Empezamos con tareas concretas y procesos fáciles de revisar. Cada solución se adapta al tipo de local y a sus objetivos.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="icon">✦</div><h3>Generador de contenido</h3><p>Ideas, borradores de publicaciones y textos para redes sociales con el tono de tu restaurante.</p></article>
+          <article class="card"><div class="icon">▦</div><h3>Calendario de publicaciones</h3><p>Planificación semanal para mantener una comunicación constante y ordenada.</p></article>
+          <article class="card"><div class="icon">☷</div><h3>Respuestas frecuentes</h3><p>Borradores para preguntas habituales sobre horarios, ubicación, reservas y servicios.</p></article>
+          <article class="card"><div class="icon">↗</div><h3>Ideas de campañas</h3><p>Propuestas para comunicar menús, novedades y promociones que el negocio haya confirmado.</p></article>
+          <article class="card"><div class="icon">◷</div><h3>Procesos automatizados</h3><p>Conexión de formularios, hojas de cálculo y herramientas para reducir tareas repetitivas.</p></article>
+          <article class="card"><div class="icon">▤</div><h3>Resumen de actividad</h3><p>Un informe sencillo para revisar el contenido preparado y decidir los siguientes pasos.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Proceso sencillo</div>
+          <h2>De la idea a un plan listo para revisar.</h2>
+          <p>La IA ayuda a preparar el trabajo; el negocio conserva el control sobre lo que se publica.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><h3>Conocemos tu local</h3><p>Recogemos información general y el estilo de comunicación que prefieres.</p></article>
+          <article class="step"><h3>Preparamos ideas</h3><p>La IA propone temas, textos y formatos para tus publicaciones.</p></article>
+          <article class="step"><h3>Organizamos el plan</h3><p>Ordenamos las propuestas en un calendario claro y reutilizable.</p></article>
+          <article class="step"><h3>Revisas y decides</h3><p>Compruebas los datos y apruebas cada contenido antes de publicarlo.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios">
+      <div class="wrap">
+        <div class="value">
+          <div>
+            <div class="eyebrow">Por qué Nexo AI</div>
+            <h2>Menos tareas repetitivas. Más tiempo para tu negocio.</h2>
+            <p class="lead">Una ayuda práctica para que restaurantes y cafeterías puedan organizar mejor su comunicación digital.</p>
+          </div>
+          <ul class="checklist">
+            <li>Contenido adaptado a cada establecimiento.</li>
+            <li>Planificación clara y fácil de modificar.</li>
+            <li>Procesos sencillos, sin necesidad de programar.</li>
+            <li>Revisión humana antes de publicar.</li>
+            <li>Empezar poco a poco, según las necesidades reales.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="wrap">
+        <div class="cta">
+          <div class="eyebrow">Hablemos de tu negocio</div>
+          <h2>¿Preparamos tu primera semana de contenido?</h2>
+          <p>Cuéntanos qué tipo de restaurante o cafetería tienes y qué tareas de marketing te gustaría simplificar.</p>
+          <a class="btn" href="mailto:HOLA@TU-DOMINIO.COM?subject=Consulta%20sobre%20Nexo%20AI">Solicitar información <span aria-hidden="true">→</span></a>
+          <div class="contact-note">Antes de publicar la web, sustituye HOLA@TU-DOMINIO.COM por tu correo profesional.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="brand" href="#inicio"><span class="brand-mark">N</span><span>Nexo <em>AI</em></span></a>
+      <span>© <span id="year">2026</span> Nexo AI. Automatiza · Crea · Crece.</span>
+      <span>La IA asiste; cada contenido debe revisarse antes de publicarse.</span>
+    </div>
+  </footer>
+</body>
+</html>
